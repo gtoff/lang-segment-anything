@@ -8,7 +8,7 @@ from lang_sam.models.utils import DEVICE
 class GDINO:
     def build_model(self, model_ckpt_path: str | None = None, processor_ckpt_path: str | None = None, device=DEVICE):
         if not model_ckpt_path or not processor_ckpt_path: # indicates that we somehow able to load the model from internet
-            model_id = "IDEA-Research/grounding-dino-base"
+            model_id = "IDEA-Research/grounding-dino-tiny"
             print(f"One or both local paths not provided. Loading from Hugging Face Hub: {model_id}")
             self.processor = AutoProcessor.from_pretrained(model_id)
             self.model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id).to(device)
